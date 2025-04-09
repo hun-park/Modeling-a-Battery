@@ -9,38 +9,38 @@
 
 ## 1. 문제 정의 (Problem Statement)
 
-전극 입자 내의 리튬 농도 \( c_s(r,t) \)는 다음 PDE로 표현됩니다. 구좌표계의 1차원 구형 대칭(spherical symmetry) 확산 방정식입니다.
+전극 입자 내의 리튬 농도 $\( c_s(r,t) \)$는 다음 PDE로 표현됩니다. 구좌표계의 1차원 구형 대칭(spherical symmetry) 확산 방정식입니다.
 
-\[
+$\[
 \frac{\partial c_s}{\partial t} = \frac{D_s}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial c_s}{\partial r}\right),\quad 0< r < R_s,\quad t>0
-\]
+\]$
 
 여기서,
 
-- \( c_s(r,t) \): 입자 내 리튬 농도 (mol/m³)
-- \( D_s \): 고체상 확산계수 (m²/s)
-- \( r \): 반지름 방향 좌표 (m)
-- \( R_s \): 입자 반경 (m)
+- $\( c_s(r,t) \)$: 입자 내 리튬 농도 (mol/m³)
+- $\( D_s \)$: 고체상 확산계수 (m²/s)
+- $\( r \)$: 반지름 방향 좌표 (m)
+- $\( R_s \)$: 입자 반경 (m)
 
 ## 2. 초기조건 (Initial Condition)
 
 전극 입자는 완충 상태(초기 State-of-Charge, SoC 100%)로 균일한 농도를 갖습니다.
 
-\[
+$\[
 c_s(r,0) = c_{s,\text{init}},\quad 0\le r\le R_s
-\]
+\]$
 
 초기 농도는 최대 농도의 특정 비율로 주어질 수 있습니다.
 
-- 예시: \( c_{s,\text{init}} = \theta_{\text{init}}\cdot c_{s,\text{max}} \),  
-(\(\theta_{\text{init}}\): 초기 SoC 비율, \(0 \leq \theta_{\text{init}} \leq 1\))
+- 예시: $\( c_{s,\text{init}} = \theta_{\text{init}}\cdot c_{s,\text{max}} \)$,  
+$(\(\theta_{\text{init}}\)$: 초기 SoC 비율, $\(0 \leq \theta_{\text{init}} \leq 1\))$
 
 ## 3. 경계조건 (Boundary Conditions)
 
 | 위치 | 종류 | 수학적 표현 |
 |---|---|---|
-| 입자 중심 (\( r=0 \)) | 대칭조건 | \(\frac{\partial c_s}{\partial r}\bigg|_{r=0}=0\) |
-| 입자 표면 (\( r=R_s \)) | 전기화학 flux 조건 | \(-D_s\frac{\partial c_s}{\partial r}\bigg|_{r=R_s}=\frac{j}{a_sF}\) |
+| 입자 중심 $(\( r=0 \))$ | 대칭조건 | $\(\frac{\partial c_s}{\partial r}\bigg|_{r=0}=0\)$ |
+| 입자 표면 $(\( r=R_s \))$ | 전기화학 flux 조건 | $\(-D_s\frac{\partial c_s}{\partial r}\bigg|_{r=R_s}=\frac{j}{a_sF}\)$ |
 
 - \( j \): 계면 반응 전류 밀도 (A/m³)
 - \( a_s = \frac{3\varepsilon_s}{R_s} \): 전극 입자의 비표면적 (1/m)
